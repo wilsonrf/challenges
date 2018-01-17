@@ -57,4 +57,25 @@ public class SolutionTest {
         int[] output = {100, 54, 1, 22};
         assertArrayEquals(output, solution.solution(ints, 2));
     }
+
+    @Test
+    public void shouldDoFullRotationToRight() {
+        int[] ints = {1, 22, 100, 54};
+        int[] output = {1, 22, 100, 54};
+        assertArrayEquals(output, solution.solution(ints, 4));
+    }
+
+    @Test
+    public void shouldDoMoreThanFullRotationToRight() {
+        int[] ints = {1, 22, 100, 54};
+        int[] output = {100, 54, 1, 22};
+        assertArrayEquals(output, solution.solution(ints, 6));
+    }
+
+    @Test
+    public void shouldDoMaxRotations() {
+        int[] ints = {1, 22, 100, 54};
+        int[] output = {22, 100, 54, 1};
+        assertArrayEquals(output, solution.solution(ints, 99));
+    }
 }
