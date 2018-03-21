@@ -59,4 +59,12 @@ public class SolutionTest {
         assertEquals(solution.solution(6, 1), 3);
     }
 
+    @Test(expected = IllegalArgumentException.class)
+    public void throwExceptionWhenAllInIsLessThanZero() {
+
+        Solution solution = new Solution();
+
+        assertEquals(solution.solution(6, -1), 3);
+    }
+
 }

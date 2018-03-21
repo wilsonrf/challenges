@@ -10,33 +10,36 @@ class Solution {
 
     public int solution(int N, int K) {
         // write your code in Java SE 8
+        if(K < 0) {
+            throw new IllegalArgumentException("K cant be less than zero");
+        }
+
         int rounds = 0;
         Stack<Integer> integers = new Stack<>();
 
         if(K == 0) {
             rounds = N - 1;
-            return rounds;
-        }
+        } else {
 
-        int aux = N;
-        while (aux > 2 && K > 0) {
-            aux = aux / 2;
-            integers.add(aux);
-            K--;
-        }
-
-        int chips = 1;
-        while (!integers.isEmpty()) {
-            int current = integers.peek();
-            if(current == chips) {
-                chips *= 2;
-                integers.pop();
-            } else {
-                chips++;
+            int aux = N;
+            while (aux > 2 && K > 0) {
+                aux = aux / 2;
+                integers.add(aux);
+                K--;
             }
-            rounds++;
-        }
 
+            int chips = 1;
+            while (!integers.isEmpty()) {
+                int current = integers.peek();
+                if (current == chips) {
+                    chips *= 2;
+                    integers.pop();
+                } else {
+                    chips++;
+                }
+                rounds++;
+            }
+        }
 
         return rounds;
     }
